@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Project xmi:id="_HBeHYG6kEe6KO-wxjFhIgA" label="Midterm" description="" language="java" technicalLabel="MIDTERM" local="true" author="_HBeHYW6kEe6KO-wxjFhIgA" productVersion="Talend Cloud Data Fabric-8.0.1.20230913_0925-patch" type="DQ" itemsRelationVersion="1.3">
+    <componentsSettings xmi:id="_2EDTMG-DEe6KO-wxjFhIgA" name="DI|tArrayIn" family="Technical"/>
+    <componentsSettings xmi:id="_2EDTMW-DEe6KO-wxjFhIgA" name="DI|tHashOutput" family="Technical"/>
+    <componentsSettings xmi:id="_2EDTMm-DEe6KO-wxjFhIgA" name="DI|tHashInput" family="Technical"/>
+    <componentsSettings xmi:id="_2EDTM2-DEe6KO-wxjFhIgA" name="DI|tArray" family="Technical"/>
+    <migrationTask xmi:id="_HDWWsG6kEe6KO-wxjFhIgA" id="org.talend.repository.model.migration.CheckProductVersionMigrationTask" breaks="7.1.0" version="7.1.1"/>
+  </TalendProperties:Project>
+  <TalendProperties:User xmi:id="_HBeHYW6kEe6KO-wxjFhIgA" login="parange.a@northeastern.edu" password="D41D8CD98F00B204E9800998ECF8427E"/>
+</xmi:XMI>

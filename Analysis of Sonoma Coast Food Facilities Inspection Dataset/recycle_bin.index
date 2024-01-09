@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
+  <deletedFolders>metadata/connections/loaddatamart</deletedFolders>
+  <deletedItems id="_qjXdIG6lEe6KO-wxjFhIgA" path="" type="METADATA_FILE_DELIMITED"/>
+  <deletedItems id="_2ymn4G6qEe6KO-wxjFhIgA" path="SourceFile" type="METADATA_FILE_DELIMITED"/>
+  <deletedItems id="_Q1WuYG7HEe6KO-wxjFhIgA" path="SourceFile" type="METADATA_FILE_DELIMITED"/>
+  <deletedItems id="_HW1ncG91Ee6KO-wxjFhIgA" path="Midterm/Datamart" type="PROCESS"/>
+  <deletedItems id="_oEXP0G7AEe6KO-wxjFhIgA" path="Midterm/Datamart" type="PROCESS"/>
+  <deletedItems id="_TbCaMG6mEe6KO-wxjFhIgA" path="Midterm/Stage" type="PROCESS"/>
+</recyclebin:RecycleBin>
