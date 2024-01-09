@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<externalNode i18n.job.component.parameters="Component Parameters:" i18n.job.properties="Properties" i18n.job.values="Values" i18n.mapper.table.for="Mapper table for " i18n.mapper.table.properties="Mapper table Properties" i18n.job.name="Name" i18n.tmap.matching.mode="Matching-mode" i18n.mapper.table.isminimized="isMinimized" i18n.tmap.isreject="isReject" i18n.tmap.isrejectinnnerjoin="isRejectInnerJoin" i18n.tmap.isinnerjoin="isInnerJoin" i18n.tmap.expressionfilter="expressionFilter" i18n.mapper.table.metadata.entries="Metadata Table Entries" i18n.job.type="Type" i18n.mapper.table.expression="Expression" i18n.tmap.isnullable="isNullable" i18n.tmap.constraint.entries="Constraint Table Entries" name="tMap_2" preview="pictures/_6uEnIG_XEe6KO-wxjFhIgA-tMap_2-PREVIEW.bmp">
+  <parameters>
+    <column name="tStatCatcher Statistics">false</column>
+    <column name="Mapping links display as:">AUTO</column>
+    <column name="Temp data directory path:"></column>
+    <column name="Max buffer size (nb of rows):">2000000</column>
+    <column name="Ignore trailing zeros for BigDecimal">true</column>
+    <column name="Show Information">false</column>
+    <column name="Comment"><![CDATA[]]></column>
+    <column name="Use an existing validation rule">false</column>
+  </parameters>
+  <mapperTable type="input">
+    <table name="row2" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="Date" type="java.util.Date" expression="" isNullable="true"/>
+        <entry name="DI_WorkflowFileName" type="String" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="output">
+    <table name="copyOfload_dim_date" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="DateSK" type="String" expression="Var.var_DateSK " isNullable="false"/>
+        <entry name="Date" type="java.util.Date" expression="row2.Date" isNullable="true"/>
+        <entry name="Year" type="String" expression="Var.var_Year " isNullable="true"/>
+        <entry name="Month" type="String" expression="Var.var_Month " isNullable="true"/>
+        <entry name="Quarter" type="String" expression="Var.var_Quarter " isNullable="true"/>
+        <entry name="Day" type="String" expression="Var.var_Day " isNullable="true"/>
+        <entry name="DI_CreatedDate" type="java.util.Date" expression="Var.var_DI_CreatedDate" isNullable="true"/>
+        <entry name="DI_WorkflowFileName" type="String" expression="row2.DI_WorkflowFileName " isNullable="true"/>
+        <entry name="DI_Workflow_Process_ID" type="String" expression="Var.var_Process_ID" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="var">
+    <table name="Var" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="var_Year" type="String" expression="row2.Date != null ?TalendDate.formatDate(&quot;yyyy&quot;,row2.Date)  : null " isNullable="false"/>
+        <entry name="var_Month" type="String" expression="row2.Date != null  ?TalendDate.formatDate(&quot;MMMM&quot;, row2.Date): null " isNullable="false"/>
+        <entry name="var_Quarter" type="String" expression="row2.Date != null  ?((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;, row2.Date)) - 1) / 3) + 1 == 1 ? &quot;Q1&quot; :
+((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;, row2.Date)) - 1) / 3) + 1 == 2 ? &quot;Q2&quot; :
+((Integer.parseInt(TalendDate.formatDate(&quot;MM&quot;, row2.Date)) - 1) / 3) + 1 == 3 ? &quot;Q3&quot; :
+&quot;Q4&quot; :null " isNullable="false"/>
+        <entry name="var_Day" type="String" expression="row2.Date != null  ?TalendDate.formatDate(&quot;EEEE&quot; ,row2.Date) : null " isNullable="false"/>
+        <entry name="var_DI_CreatedDate" type="java.util.Date" expression="TalendDate.getCurrentDate() " isNullable="false"/>
+        <entry name="var_Process_ID" type="String" expression="pid" isNullable="false"/>
+        <entry name="var_DateSK" type="String" expression="TalendDate.formatDate(&quot;yyyyMMdd&quot;,row2.Date ) " isNullable="false"/>
+        <entry name="var1" type="String" expression="" isNullable="false"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+</externalNode>

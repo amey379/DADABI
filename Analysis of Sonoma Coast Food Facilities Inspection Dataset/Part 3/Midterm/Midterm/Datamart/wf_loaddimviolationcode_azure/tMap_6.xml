@@ -1,0 +1,93 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<externalNode i18n.job.component.parameters="Component Parameters:" i18n.job.properties="Properties" i18n.job.values="Values" i18n.mapper.table.for="Mapper table for " i18n.mapper.table.properties="Mapper table Properties" i18n.job.name="Name" i18n.tmap.matching.mode="Matching-mode" i18n.mapper.table.isminimized="isMinimized" i18n.tmap.isreject="isReject" i18n.tmap.isrejectinnnerjoin="isRejectInnerJoin" i18n.tmap.isinnerjoin="isInnerJoin" i18n.tmap.expressionfilter="expressionFilter" i18n.mapper.table.metadata.entries="Metadata Table Entries" i18n.job.type="Type" i18n.mapper.table.expression="Expression" i18n.tmap.isnullable="isNullable" i18n.tmap.constraint.entries="Constraint Table Entries" name="tMap_6" preview="pictures/_loEWYG_aEe6KO-wxjFhIgA-tMap_6-PREVIEW.bmp">
+  <parameters>
+    <column name="tStatCatcher Statistics">false</column>
+    <column name="Mapping links display as:">AUTO</column>
+    <column name="Temp data directory path:"></column>
+    <column name="Max buffer size (nb of rows):">2000000</column>
+    <column name="Ignore trailing zeros for BigDecimal">true</column>
+    <column name="Show Information">false</column>
+    <column name="Comment"><![CDATA[]]></column>
+    <column name="Use an existing validation rule">false</column>
+  </parameters>
+  <mapperTable type="input">
+    <table name="row8" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="InspectionId" type="String" expression="" isNullable="true"/>
+        <entry name="InspectionSK" type="Integer" expression="" isNullable="true"/>
+        <entry name="DI_WorkflowFileName" type="String" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row9" matching-mode="ALL_MATCHES" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="ViolationCodes" type="String" expression="" isNullable="true"/>
+        <entry name="InspectionId" type="String" expression="row8.InspectionId" isNullable="true"/>
+        <entry name="var_seq_vio" type="int" expression="" isNullable="false"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row11" matching-mode="ALL_MATCHES" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="true" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="InspectionId" type="String" expression="row8.InspectionId" isNullable="true"/>
+        <entry name="ViolationDescriptions" type="String" expression="" isNullable="true"/>
+        <entry name="var_voi_seq" type="int" expression="row9.var_seq_vio " isNullable="false"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row1" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="ViolationCode" type="String" expression="row9.ViolationCodes " isNullable="true"/>
+        <entry name="ViolationDesc" type="String" expression="row11.ViolationDescriptions " isNullable="true"/>
+        <entry name="ViolationCodeSK" type="Integer" expression=" " isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="output">
+    <table name="load_fact_violation" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="InspectionSK" type="Integer" expression="row8.InspectionSK " isNullable="true"/>
+        <entry name="ViolationSK" type="Integer" expression="" isNullable="true"/>
+        <entry name="ViolationCodeSK" type="Integer" expression=" row1.ViolationCodeSK " isNullable="true"/>
+        <entry name="Violation_Category" type="String" expression="Var.var_Violation_Category " isNullable="true"/>
+        <entry name="CategoryScore" type="Integer" expression="Var.var_Category_Score " isNullable="true"/>
+        <entry name="DI_CreatedDate" type="java.util.Date" expression="Var.var_DI_CreatedDate " isNullable="true"/>
+        <entry name="DI_WorkflowFileName" type="String" expression=" row8.DI_WorkflowFileName " isNullable="true"/>
+        <entry name="DI_Workflow_ProcessID" type="String" expression="Var.var_DI_Workflow_ProcessID " isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="var">
+    <table name="Var" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="var_Violation_Category" type="String" expression="row11.ViolationDescriptions==null|| row11.ViolationDescriptions.isEmpty()||row9.ViolationCodes==null||row9.ViolationCodes.isEmpty()
+? 
+&quot;OTHER&quot;
+: row9.ViolationCodes.trim().startsWith(&quot;K&quot;)?
+&quot;OTHER&quot;
+:
+row11.ViolationDescriptions.toUpperCase().contains(&quot;MINOR&quot;)
+?&quot;MINOR&quot;
+:
+row11.ViolationDescriptions.toUpperCase().contains(&quot;MAJOR&quot;)
+?&quot;MAJOR&quot;
+
+:&quot;OTHER&quot; " isNullable="false"/>
+        <entry name="var_Category_Score" type="int" expression="row11.ViolationDescriptions==null|| row11.ViolationDescriptions.isEmpty()||row9.ViolationCodes==null||row9.ViolationCodes.isEmpty()
+? 
+0
+: row9.ViolationCodes.trim().startsWith(&quot;K&quot;)?
+0
+:
+row11.ViolationDescriptions.toUpperCase().contains(&quot;MINOR&quot;)
+?5
+:
+row11.ViolationDescriptions.toUpperCase().contains(&quot;MAJOR&quot;)
+?10
+
+:0 " isNullable="false"/>
+        <entry name="var_DI_CreatedDate" type="java.util.Date" expression="TalendDate.getCurrentDate() " isNullable="false"/>
+        <entry name="var_DI_Workflow_ProcessID" type="String" expression="pid" isNullable="false"/>
+        <entry name="var1" type="int" expression="Numeric.sequence(&quot;S1&quot;,1,1) " isNullable="false"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+</externalNode>
