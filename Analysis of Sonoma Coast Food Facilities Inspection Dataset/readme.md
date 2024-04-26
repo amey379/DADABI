@@ -1,10 +1,16 @@
 Food Facility Inspection Analysis
 
 The Food Facility Inspections Project involves the analysis of food inspection data from the Sonoma County Department of Health Services, Austin, New York and Chicago Dataset.
+
 Understing the layout of tables, fields, and the relationships between different data elements. It helped us in understanding how the data is organized
+
 Used Alteryx, to examine the dataset and document any identified issues, including but not limited to missing data, data discrepancies, and inconsistencies.
+
 Implemented Datamart for the Dataset by modeling data, managing Datamart on Azure Data Studio, performing ELT on datamart by using Talend ETL.
+![image](https://github.com/amey379/DADABI/assets/29867986/262863b2-26c2-48af-8e45-e2ab97bc2412)
+
 Visualized insights using the data on Tableau and PowerBI
+
 	How many food inspections over Year/Quarter/Month/Weekend/Weekday/Day
 	Number of food inspections over time for below criteria
 	Pass vs fail	
